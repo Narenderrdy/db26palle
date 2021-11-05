@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the Hat pug
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let Hat = [
+                    {
+                        "brand": "Tommy",
+                        "material": "cotton",
+                        "cost": 15
+                    },
+                    {
+                        "brand": "Kangol",
+                        "material": "Wool",
+                        "cost": 20
+                    },
+                    {
+                        "brand": "Bailey",
+                        "material": "Nylon",
+                        "cost": 10
+                    },                   
+                ]
+            each n,index in Hat
+                div(class="col-sm-2" onclick=`buy(${index})`) #{n.brand}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{n.material}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{n.cost}
+        script.                
+            function buy(itemNo)
+            {
+                  alert(`you purchased Item ${itemNo+1}`)
+            }
