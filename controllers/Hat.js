@@ -11,6 +11,19 @@ exports.Hat_list = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
+// VIEWS 
+// Handle a show all view 
+exports.Hat_view_all_Page = async function (req, res) {
+    try {
+        theHats = await Hat.find();
+        res.render('Hats', { title: 'Hats Search Results', results: theHats });
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
+};
+
 
 
 // for a specific Hat. 

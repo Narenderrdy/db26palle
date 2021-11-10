@@ -6,23 +6,8 @@ block content
   div(class="container-fluid")
         div(class="row")
             -
-                let Hat = [
-                    {
-                        "brand": "Tommy",
-                        "material": "cotton",
-                        "cost": 15
-                    },
-                    {
-                        "brand": "Kangol",
-                        "material": "Wool",
-                        "cost": 20
-                    },
-                    {
-                        "brand": "Bailey",
-                        "material": "Nylon",
-                        "cost": 10
-                    },                   
-                ]
+                let Hat = results
+
             each n,index in Hat
                 div(class="col-sm-2" onclick=`buy(${index})`) #{n.brand}
                 div(class="col-sm-2" onclick=`buy(${index})`) #{n.material}
