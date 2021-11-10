@@ -1,9 +1,17 @@
 var Hat = require('../models/Hat');
 
 // List of all Hat
-exports.Hat_list = function (req, res) {
-    res.send('NOT IMPLEMENTED: Hat list');
+exports.Hat_list = async function (req, res) {
+    try {
+        theHats = await Hat.find();
+        res.send(theHats);
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 };
+
 
 // for a specific Hat. 
 exports.Hat_detail = function (req, res) {
