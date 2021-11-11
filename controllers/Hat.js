@@ -16,7 +16,7 @@ exports.Hat_list = async function (req, res) {
 exports.Hat_view_all_Page = async function (req, res) {
     try {
         theHats = await Hat.find();
-        res.render('Hats', { title: 'Hats Search Results', results: theHats });
+        res.render('Hat', { title: 'Hats Search Results', results: theHats });
     }
     catch (err) {
         res.status(500);
