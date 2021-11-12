@@ -26,9 +26,16 @@ exports.Hat_view_all_Page = async function (req, res) {
 
 
 
-// for a specific Hat. 
-exports.Hat_detail = function (req, res) {
-    res.send('NOT IMPLEMENTED: Hat detail: ' + req.params.id);
+// for a specific Hat.  
+exports.Hat_detail = async function (req, res) {
+    console.log("detail" + req.params.id)
+    try {
+        result = await Hat.findById(req.params.id)
+        res.send(result)
+    } catch (error) {
+        res.status(500)
+        res.send(`{"error": document for id ${req.params.id} not found`);
+    }
 };
 
 // Handle Hat create on POST. 
@@ -57,7 +64,23 @@ exports.Hat_delete = function (req, res) {
     res.send('NOT IMPLEMENTED: Hat delete DELETE ' + req.params.id);
 };
 
-// Handle Hat update form on PUT. 
-exports.Hat_update_put = function (req, res) {
-    res.send('NOT IMPLEMENTED: Hat update PUT' + req.params.id);
+//Handle Hat update form on PUT. 
+exports.Hat_update_put = async function (req, res) {
+    console.log(`update on id ${req.params.id} with body 
+${JSON.stringify(req.body)}`)
+    try {
+        let toUpdate = await Hat.findById(req.params.id)
+        // Do updates of properties 
+        if (req.body.Hat_type)
+            toUpdate.brand = req.body.brand;
+        if (req.body.material) toUpdate.material = req.body.material;
+        if (req.body.cost) toUpdate.cost = req.body.cost;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id} 
+failed`);
+    }
 };
