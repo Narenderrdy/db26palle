@@ -10,5 +10,7 @@ module.exports = router;
 router.get('/', function (req, res, next) {
     res.render('Hat', { title: 'Search Results Hat' });
 });
+/* GET detail Hat page */
+router.get('/detail', Hat_controlers.Hat_view_one_Page);
 
 module.exports = router;
