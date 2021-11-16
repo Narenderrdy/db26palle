@@ -12,5 +12,7 @@ router.get('/', function (req, res, next) {
 });
 /* GET detail Hat page */
 router.get('/detail', Hat_controlers.Hat_view_one_Page);
+/* GET create Hat page */
+router.get('/create', Hat_controlers.Hat_create_Page);
 
 module.exports = router;
