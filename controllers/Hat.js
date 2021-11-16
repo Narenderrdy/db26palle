@@ -59,9 +59,17 @@ exports.Hat_create_post = async function (req, res) {
     }
 };
 
-// Handle Hat delete form on DELETE. 
-exports.Hat_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: Hat delete DELETE ' + req.params.id);
+//Handle Hat delete on DELETE. 
+exports.Hat_delete = async function (req, res) {
+    console.log("delete " + req.params.id)
+    try {
+        result = await Hat.findByIdAndDelete(req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
 };
 
 //Handle Hat update form on PUT. 
