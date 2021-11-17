@@ -2,7 +2,9 @@ extends layout
  
 block content 
   h1= title 
- 
+ if (toShow == null)
+    h2 No instance to delete
+  else
   - let Hatid = toShow._id 
   - let Hatbrand = toShow.brand
   - let Hatmaterial = toShow.material 
