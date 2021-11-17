@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1(class="style")= title
 
   if (toShow == null)
     h2 No instance to delete
@@ -16,16 +16,16 @@ block content
     div
       div.row
         div(class='HatAttr mr-3') Hat ID is:
-        div(class='newAttr') #{Hatid}
+        div(class="style hatup") #{Hatid}
       div.row
         div(class='HatAttr mr-3') Hat brand is:
-        div(class='newAttr') #{Hatbrand}
+        div(class="style hatup") #{Hatbrand}
       div.row
         div(class='HatAttr mr-3') Hat material is:
-        div(class='newAttr') #{Hatmaterial}
+        div(class="style hatup") #{Hatmaterial}
       div.row
         div(class='HatAttr mr-3') Hat cost is:
-        div(class='newAttr') #{Hatcost}
+        div(class='style hatup') #{Hatcost}
       
 
     button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete

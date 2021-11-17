@@ -79,7 +79,7 @@ ${JSON.stringify(req.body)}`)
     try {
         let toUpdate = await Hat.findById(req.params.id)
         // Do updates of properties 
-        if (req.body.Hat_type)
+        if (req.body.brand)
             toUpdate.brand = req.body.brand;
         if (req.body.material) toUpdate.material = req.body.material;
         if (req.body.cost) toUpdate.cost = req.body.cost;
