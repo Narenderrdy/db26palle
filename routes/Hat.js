@@ -21,10 +21,10 @@ router.get('/', function (req, res, next) {
 /* GET detail Hat page */
 router.get('/detail', Hat_controlers.Hat_view_one_Page);
 /* GET create Hat page */
-router.get('/create', Hat_controlers.Hat_create_Page);
+router.get('/create', secured, Hat_controlers.Hat_create_Page);
 /* GET create update page */
 router.get('/update', secured, Hat_controlers.Hat_update_Page);
 /* GET create costume page */
-router.get('/delete', Hat_controlers.Hat_delete_Page);
+router.get('/delete', secured, Hat_controlers.Hat_delete_Page);
 
 module.exports = router;
